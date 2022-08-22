@@ -1,35 +1,36 @@
 public class FireWizard extends Enemies
 {
     //Instance Variables
-    private int numClaws;
+    private int Fireball;
+    private String PhoneixName;
     private static int numFireWizards;
     //Constructor
-    public FireWizard(String name, boolean hasClaws,int attackDmg,EnemyType enemyType,int numClaws)
+    public FireWizard(String name,boolean FireSlash ,String PhoneixName,int Fireball)
     {
-        super(name,hasClaws,attackDmg,enemyType);
-        this.numClaws = numClaws;
+        super(name,FireSlash, Fireball);
+        this.Fireball = Fireball;
         numFireWizards++;
     }
 
     //Getters and Setters
-    public int getNumClaws() {
-        return numClaws;
+    public int getFireball() {
+        return Fireball;
     }
 
-    public void setNumClaws(int numClaws) {
-        this.numClaws = numClaws;
+    public void setFireball(int Fireball) {
+        this.Fireball = Fireball;
     }
 
     //Brain Methods
     public void validate()
     {
-        if(numClaws < 0 )
+        if(Fireball < 0 )
         {
-            System.out.println(super.getName()+ " the FireWizard can't have negative claws");
+            System.out.println(super.getName()+ " does not have any Fireballs, he is not a FireWizard.");
         }
         else
         {
-            System.out.println(super.getName() + " is a real FireWizard");
+            System.out.println(super.getName() + " has Fireballs, that means he is a real FireWizard");
         }
     }
 
@@ -41,7 +42,7 @@ public class FireWizard extends Enemies
     public String toString()
     {
         String output = super.toString();
-        output += "\nThis FireWizard has " + numClaws + " claws\n";
+        output += "\nThis FireWizard has " + Fireball + " Fireballs\n";
         return output;
     }//end toString for FireWizards
 }//end FireWizard Class
