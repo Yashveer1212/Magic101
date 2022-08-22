@@ -1,4 +1,4 @@
-enum Elements
+enum Elements //Learned Enum from Alex Lee on Youtube
 {
     FIRE,
     WATER,

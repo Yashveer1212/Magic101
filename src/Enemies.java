@@ -1,4 +1,4 @@
-enum EnemyType
+enum EnemyType //Learned Enum from Alex Lee on Youtube
 {
     FireWizard,
     IceWizard,
