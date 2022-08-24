@@ -1,49 +1,72 @@
-public class FireWizard extends Enemies
+public class FireWizard extends Wizard
 {
-    //Instance Variables
-    private int Fireball;
-    private String PhoneixName;
-    private static int numFireWizards;
-    //Constructor
-    public FireWizard(String name,boolean FireSlash ,String PhoneixName,int Fireball)
+    // 1) instance vars
+    int fireballs;
+    boolean fireslash;
+    String phoenixName;
+
+    // 2) constructor
+    public FireWizard (double speed, int power, String name, int fireballs, boolean fireslash, String phoenixName)
     {
-        super(name,FireSlash, Fireball);
-        this.Fireball = Fireball;
-        numFireWizards++;
+        super(speed, power, name);
+        this.fireballs = fireballs;
+        this.fireslash = fireslash;
+        this.phoenixName = phoenixName;
     }
 
-    //Getters and Setters
-    public int getFireball() {
-        return Fireball;
-    }
-
-    public void setFireball(int Fireball) {
-        this.Fireball = Fireball;
-    }
-
-    //Brain Methods
-    public void validate()
+    // 4) getters
+    public String getName()
     {
-        if(Fireball < 0 )
-        {
-            System.out.println(super.getName()+ " does not have any Fireballs, he is not a FireWizard.");
-        }
-        else
-        {
-            System.out.println(super.getName() + " has Fireballs, that means he is a real FireWizard");
-        }
+        return super.getName();
     }
 
-    public void displayNumFireWizards()
+    public int getFireballs()
     {
-        System.out.println("There are " + numFireWizards + " FireWizards");
+        return fireballs;
     }
-    //ToString
+
+    public boolean getFireslash()
+    {
+        return fireslash;
+    }
+
+    public String getPhoenixName()
+    {
+        return phoenixName;
+    }
+
+    public String getElement()
+    {
+        return "Fire";
+    }
+
+    // 5) setters
+
+    public void setFireballs(int fireballs)
+    {
+        this.fireballs = fireballs;
+    }
+
+    public void setFireslash(boolean fireslash)
+    {
+        this.fireslash = fireslash;
+    }
+
+    public void setPhoenixName(String phoenixName)
+    {
+        this.phoenixName = phoenixName;
+    }
+
+
+    // 3) toString()
+    @Override
     public String toString()
     {
-        String output = super.toString();
-        output += "\nThis FireWizard has " + Fireball + " Fireballs\n";
-        return output;
-    }//end toString for FireWizards
-}//end FireWizard Class
+        return "Fire Wizard {" +
+                "Name: " + name +
+                ", Number of fireballs: " + fireballs +
+                ", Has fireslash: " + fireslash +
+                ", Phoenix name: " + phoenixName +  "}";
+    } // end toString()
 
+} // end FireWizard class

@@ -1,69 +1,71 @@
-enum Elements //Learned Enum from Alex Lee on Youtube
+public class IceWizard extends Wizard
 {
-    FIRE,
-    WATER,
-    AIR,
-    ICE ,
-    FAKE,
-}
+    // 1) instance vars
+    int snowballs;
+    boolean iceSpear;
+    String golemName;
 
-public class IceWizard extends Enemies
-{
-    //instance variables
-    private Elements SubZerosElement ;
-    private static int numIceWizards;
-
-    //Constructors
-    public IceWizard(String name, boolean IceSpear ,int Power,EnemyType enemyType, Elements SubZerosElement )
+    // 2) constructor
+    public IceWizard (double speed, int power, String name, int snowballs, boolean iceSpear, String golemName)
     {
-        super(name,IceSpear,Power);
-        this.SubZerosElement  = SubZerosElement ;
-        numIceWizards++;
-    }//end of full args constructor
-
-    //Getters and Setters
-    public Elements getSubZerosElement ()
-    {
-        return SubZerosElement ;
+        super(speed, power, name);
+        this.snowballs = snowballs;
+        this.iceSpear = iceSpear;
+        this.golemName = golemName;
     }
 
-    public void setSubZerosElement (Elements SubZerosElement )
+    // 4) getters
+    public String getName()
     {
-        this.SubZerosElement  = SubZerosElement ;
+        return super.getName();
     }
 
-    //brain method
-    public void validate()
+    public int getSnowballs()
     {
-        switch(SubZerosElement)
-        {
-            case FIRE:
-                System.out.println(super.getName() + " IceWizard is a valid Wizard of the Fire Element");
-                break;
-            case WATER:
-                System.out.println(super.getName() + " IceWizard is a valid Wizard of the Water Element");
-                break;
-            case ICE :
-                System.out.println(super.getName() + " IceWizard is a valid Wizard of the Ice  Element");
-                break;
-            case AIR:
-                System.out.println(super.getName() + " IceWizard is a valid Wizard of the Air ELEMENT");
-                break;
-            default:
-                System.out.println(super.getName() + " is not a valid IceWizard element");
-                break;
-        }
-    }//end method to check if the SubZero is a valid IceWizard
-
-    public void displayNumIceWizards()
-    {
-        System.out.println("There are " + numIceWizards + " IceWizards");
+        return snowballs;
     }
+
+    public boolean getIceSpear()
+    {
+        return iceSpear;
+    }
+
+    public String getgolemName()
+    {
+        return golemName;
+    }
+
+    public String getElement()
+    {
+        return "Ice";
+    }
+
+    // 5) setters
+    public void setSnowballs(int snowballs)
+    {
+        this.snowballs = snowballs;
+    }
+
+    public void setIceSpear(boolean iceSpear)
+    {
+        this.iceSpear = iceSpear;
+    }
+
+    public void setgolemName(String golemName)
+    {
+        this.golemName = golemName;
+    }
+
+
+    // 3) toString()
+    @Override
     public String toString()
     {
-        String output = super.toString();
-        output += "\nThis is a " + SubZerosElement  + " IceWizard.\n";
-        return output;
-    }//end method toString
-}
+        return "Ice Wizard {" +
+                "Name: " + name +
+                ", Number of snowballs: " + snowballs +
+                ", Has ice spear: " + iceSpear +
+                ", Ice golem name: " + golemName +  "}";
+    } // end toString()
 
+} // end IceWizard class

@@ -1,64 +1,31 @@
-
-
 public class MagicDriver
 {
-    public static void main(String[]args)
+    public static void main(String[] args)
     {
-        //Create all enemy and ElectricWizard objects
-        FireWizard Scorpion = new FireWizard("Scorpion",true,"Vulk",5);
-        FireWizard Tarantulas  = new FireWizard("Tarantulas",false,"Larry",-3);
+        Wizard w1 = new Wizard(10, 5, "frogster");
+        FireWizard Scorpion = new FireWizard(6, 50, "Scorpion", 9, true, "Vulk");
+        IceWizard SubZero = new IceWizard(6, 50, "SubZero", 10, true, "Snowflake");
+        IceWizard NotSubZero = new IceWizard(0.5, 100, "NotSubZero", 100, false, "Neptune");
+        ElectricWizard Thor = new ElectricWizard(10, 50, "Thor", 10, 5, "Sam");
+        Dragon Zekrom = new Dragon("Zekrom", "Lighting");
+        Dragon Reshiram = new Dragon("Reshiram", "Fire");
 
-        Dragon Toothless = new Dragon("Toothless",true,10,EnemyType.Dragon,10,7);
-        Dragon ToothFull  = new Dragon("ToothFull",false,8,EnemyType.Dragon, 4,10);
+        Wizard [] wizardArr = {Scorpion, SubZero, NotSubZero, Thor};
+        Dragon [] dragonArr = {Zekrom, Reshiram};
 
-        IceWizard SubZero = new IceWizard("SubZero",false,7,EnemyType.IceWizard, Elements.ICE);
-        IceWizard NotSubZero = new IceWizard("NotSubZero",true,4,EnemyType.FireWizard, Elements.FIRE);
-
-        ElectricWizard Surge = new ElectricWizard("Surge","Brandon",5,10);
-        ElectricWizard Thor = new ElectricWizard("Thor","Sam",6,4);
-
-
-        //validate each of the enemy objects
-        Scorpion.validate();
-        Tarantulas .validate();
-
-        System.out.println("Is " + Toothless.getName()+ " a real Dragon? " + Toothless.validate());
-        System.out.println("Is " + ToothFull .getName()+ " a real Dragon? " + ToothFull .validate());
-
-        SubZero.validate();
-        NotSubZero.validate();
-
-        System.out.println();
-
-        //fix the objects that need to be validated
-        Tarantulas .setFireball(2);
-
-        ToothFull .setFireSlash (true);
-
-        NotSubZero.setSubZerosElement (Elements.AIR);
-
-        System.out.println();
-        //validate the objects again
-        Tarantulas .validate();
-
-        System.out.println("Is " + ToothFull .getName()+ " a real Dragon? " + ToothFull .validate());
-
-        NotSubZero.validate();
-
-        System.out.println();
-        //print out the enemies you are facing and their toStrings
-        Enemies[] myEnemies = {Scorpion,Tarantulas ,Toothless,ToothFull ,SubZero,NotSubZero};
-
-        for(int i = 0; i < myEnemies.length; i++)
+        // this prints out the differnt wizards
+        System.out.println("Wizards:");
+        for (Wizard w: wizardArr)
         {
-            System.out.println(myEnemies[i]);
+            System.out.println(w);
         }
-        //Display how many of each enemey and ElectricWizards there are
-        Scorpion.displayNumFireWizards();
-        Toothless.displayNumDragons();
-        SubZero.displayNumIceWizards();
 
+        // this prints out two differnt dragons
+        System.out.println("\nDragons:");
+        for (Dragon d: dragonArr)
+        {
+            System.out.println(d);
+        }
 
-    }//end of Main method
-}//end Magic driver
-
+    } // end main
+} // end MagicDriver class

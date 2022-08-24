@@ -1,104 +1,70 @@
-public class ElectricWizard
+public class ElectricWizard extends Wizard
 {
-    //instance variables
-    private String name;
+    // 1) instance vars
+    int zappies;
+    int clouds;
+    String giantName;
 
-    private int power;
-
-    private String elecGiantName;
-    private int dmgToFireWizard;
-    private int ZappiesNum;
-    private int CloudsNum;
-
-    //Constructor
-    public ElectricWizard(String name, String elecGiantName,int ZappiesNum , int CloudsNum)
+    // 2) constructor
+    public ElectricWizard (double speed, int power, String name, int zappies, int clouds, String giantName)
     {
-        this.name = name;
-        this.power = power;
-        this.elecGiantName = elecGiantName;
-        this.dmgToFireWizard = dmgToFireWizard;
-        this.ZappiesNum  = ZappiesNum ;
-        this.CloudsNum = CloudsNum;
-    }//end full args constructor
-
-    //getters and setters
-
-
-    public int getDmgToFireWizard() {
-        return dmgToFireWizard;
+        super(speed, power, name);
+        this.zappies = zappies;
+        this.clouds = clouds;
+        this.giantName = giantName;
     }
 
-    public int getZappiesNum () {
-        return ZappiesNum ;
-    }
-
-    public int getCloudsNum() {
-        return CloudsNum;
-    }
-
-    public void setelecGiantName(int elecGiantName) {
-        elecGiantName = elecGiantName;
-    }
-
-    public void setDmgToFireWizard(int dmgToFireWizard) {
-        this.dmgToFireWizard = dmgToFireWizard;
-    }
-
-    public void setZappiesNum (int ZappiesNum ) {
-        this.ZappiesNum  = ZappiesNum ;
-    }
-
-    public void setCloudsNum(int CloudsNum) {
-        this.CloudsNum = CloudsNum;
-    }
-
-    //brain methods
-    public void exchangeAttacks(Enemies enemy)
+    // 4) getters
+    public String getName()
     {
-        power -= enemy.getPower();
-        //note to self, the enemy cannot die as for right now
-        System.out.println("\n"+ enemy.getName() + " The " + enemy.getEnemyType() + " has hit you for "
-                + enemy.getPower() + " damage");
-        switch(enemy.getEnemyType())
-        {
-            case FireWizard:
-                System.out.println("You hit " + enemy.getName() + " the FireWizard for " + dmgToFireWizard
-                        + " damage");
-                break;
-            case Dragon:
-                System.out.println("You hit " + enemy.getName() + " the Dragon for " + ZappiesNum 
-                        + " damage");
-                break;
-            case IceWizard:
-                System.out.println("You hit " + enemy.getName() + " the IceWizard for " + CloudsNum
-                        + " damage");
-                break;
-        }
-    }//end brain method to inflict damage onto the enemies and vice versa
+        return super.getName();
+    }
 
-    public void healingPotion()
+    public int getZappies()
     {
-        if(power < 1)
-        {
-            System.out.println("you are technically dead, but use this heal potion to lessen your death");
-        }
-        power+=25;
-        if(power >200)
-        {
-            power = 200;
-        }
-        System.out.println("25 Health has been healed to " +  name);
-    }//end brain method to heal the ElectricWizard
+        return zappies;
+    }
 
+    public int getClouds()
+    {
+        return clouds;
+    }
 
-    //toString()
+    public String getGiantName()
+    {
+        return giantName;
+    }
+
+    public String getElement()
+    {
+        return "Electric";
+    }
+
+    // 5) setters
+    public void setZappies(int zappies)
+    {
+        this.zappies = zappies;
+    }
+
+    public void setClouds(int clouds)
+    {
+        this.clouds = clouds;
+    }
+
+    public void setGiantName(String giantName)
+    {
+        this.giantName = giantName;
+    }
+
+    // 3) toString()
+    @Override
     public String toString()
     {
-        String output ="\n" + name + " the ElectricWizard:"
-                + "\nDamage against Dragons: " + ZappiesNum 
-                + "\nDamage against IceWizards: " + CloudsNum
-                + "\nDamage against FireWizardes: " + dmgToFireWizard;
-        return output;
-    }//end toString for the ElectricWizard class
-}
+        return "Electric Wizard {" +
+                "Name: " + name +
+                ", Number of zappies: " + zappies +
+                ", Number of clouds: " + clouds +
+                ", Electric giant name: " + giantName +  "}";
+    } // end toString()
 
+} // end ElectricWizard class

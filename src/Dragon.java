@@ -1,75 +1,46 @@
-public class Dragon extends Enemies
+public class Dragon
 {
-    //instance variables
-    private int numWings;
-    private int wingLength;
-    private static int numDragons;
+    // 1) instance vars
+    String element;
+    String name;
 
-    //constructor
-    public Dragon(String name, boolean FireSlash ,int Power,EnemyType enemyType, int numWings, int wingLength)
+    // 2) constructor
+    public Dragon (String name, String element)
     {
-        super(name,FireSlash , Power);
-        this.numWings = numWings;
-        this.wingLength = wingLength;
-        numDragons++;
-
-    }//end full args constructor
-
-    //getters and setters
-
-    public int getNumWings()
-    {
-        return numWings;
+        this.name = name;
+        this.element = element;
     }
 
-    public int getWingLength()
+    // 4) getters
+    public String getName()
     {
-        return wingLength;
+        return name;
     }
 
-    public void setNumWings(int numWings)
+    public String getElement()
     {
-        this.numWings = numWings;
+        return element;
     }
 
-    public void setWingLength(int wingLength)
+    // 5) setters
+    public void setName(String name)
     {
-        this.wingLength = wingLength;
+        this.name = name;
     }
 
-    //brain methods
-    public boolean validate()
+    public void setElement(String element)
     {
-        boolean FireSlash  = super.getFireSlash ();
-        boolean isDragon = true;
-
-        if(numWings < 2)
-        {
-            isDragon = false;
-        }
-        else if(wingLength < 1)
-        {
-            isDragon = false;
-        }
-        else if(FireSlash  == false)
-        {
-            isDragon = false;
-        }
-
-        return isDragon;
-    }//end brain method to check if Dragon object is a valid Dragon/ the validation
-
-    public void displayNumDragons()
-    {
-        System.out.println("There are " + numDragons + " Dragons");
+        this.element = element;
     }
-    //toString
+
+
+    // 3) toString()
+    @Override
     public String toString()
     {
-        String output = super.toString();
-        output += "\nThis Dragon has " + numWings + " wings" + "\nthat are " + wingLength + " feet long";
+        return "Dragon {" +
+                "Name: " + name +
+                ", Element: " + element + "}";
+    } // end toString()
 
-        return output;
-    }
-}//end Dragon class
-
+} // end Dragon class
