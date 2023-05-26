@@ -1,5 +1,5 @@
 # Magic101
-Magic101
+Magic 101
 
 Project Name: Enchantment 101 
 Course Title: Advanced Java Concepts
